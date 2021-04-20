@@ -1910,7 +1910,17 @@ function post(body) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify({
+                "msg_type": "post",
+                "content": {
+                    "post": {
+                        "zh_cn": {
+                            "title": body.title,
+                            "content": body.text,
+                        }
+                    }
+                }
+                })
         });
         core.debug(rsp.body);
         return rsp.body;
@@ -1987,7 +1997,7 @@ exports.parse = function (s) {
       if(/^:base64:/.test(value))
         return new Buffer(value.substring(8), 'base64')
       else
-        return /^:/.test(value) ? value.substring(1) : value 
+        return /^:/.test(value) ? value.substring(1) : value
     }
     return value
   })
@@ -2473,7 +2483,7 @@ const create = (defaults) => {
         var _a;
         let iteration = 0;
         const iterateHandlers = (newOptions) => {
-            return defaults.handlers[iteration++](newOptions, 
+            return defaults.handlers[iteration++](newOptions,
             // @ts-ignore TS doesn't know that it calls `getPromiseOrStream` at the end
             iteration === defaults.handlers.length ? getPromiseOrStream : iterateHandlers);
         };
@@ -5250,7 +5260,7 @@ module.exports.default = deferToConnect;
 /******/ },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ 	"use strict";
-/******/ 
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	!function() {
 /******/ 		__webpack_require__.nmd = function(module) {
@@ -5267,6 +5277,6 @@ module.exports.default = deferToConnect;
 /******/ 			return module;
 /******/ 		};
 /******/ 	}();
-/******/ 	
+/******/
 /******/ }
 );

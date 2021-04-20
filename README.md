@@ -6,7 +6,7 @@
 
 ```yml
 - name: ci status
-  uses: foxundermoon/feishu-action@v1
+  uses: xtao/feishu-action@master
   with:
     url: ${{ secrets.FEISHU_BOT_WEBHOOK_URL }}
     title: notice
@@ -28,7 +28,7 @@ Contexts and expression syntax for GitHub Actions, here: https://help.github.com
 
 | option | type   | description                                                               |
 | ------ | ------ | ------------------------------------------------------------------------- |
-| url    | string | webhook url: https://open.feishu.cn/open-apis/bot/hook/7c5a4a4ba83bxxxxxx |
+| url    | string | webhook url: https://open.feishu.cn/open-apis/bot/v2/hook/7c5a4a4ba83bxxxxxx |
 | title  | string | message title                                                             |
 | text   | string | message body                                                              |
 

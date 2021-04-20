@@ -21,7 +21,19 @@ async function post(body: Message): Promise<string> {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(
+        {
+            "msg_type": "post",
+            "content": {
+                "post": {
+                    "zh_cn": {
+                        "title": body.title,
+                        "content": body.text,
+                    }
+                }
+            }
+        }
+    )
   })
 
   core.debug(rsp.body)
