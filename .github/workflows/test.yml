@@ -21,10 +21,12 @@ jobs:
       - uses: ./
         with:
           url: ${{ secrets.FEISHU_BOT_WEBHOOK_URL }}
-          title: notice
-          text: |
-            from github action test
-            repository: ${{ github.repository }}
-            committer: ${{ github.actor }}
-            compare: ${{ github.event.compare }}
-            job status: ${{ job.status }}
+          title: ${{ github.repository }} Action Notification
+          run_id: ${{ github.run_id }}
+          run_number: ${{ github.run_number }}
+          action_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          repository: ${{ github.repository }}
+          committer: ${{ github.actor }}
+          event_name: ${{ github.event_name }}
+          job_status: ${{ job.status }}
+          compare_url: ${{ github.event.compare }}

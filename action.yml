@@ -8,14 +8,33 @@ inputs:
   title:
     required: true
     description: the msg title
-  text:
+  run_id:
     required: true
-    description: the msg body
-
+    description: run id github.run_id
+  run_number:
+    required: true
+    description: run number github.run_number
+  action_url:
+    required: true
+    description: https://github.com/github.repository/actions/runs/github.run_id
+  repository:
+    required: true
+    description: github.repository
+  committer:
+    required: true
+    description: github.actor
+  event_name:
+    required: true
+    description: github.event_name
+  job_status:
+    required: true
+    description: job.status
+  compare_url:
+    required: true
+    description: github.event.compare
 runs:
   using: 'node12'
   main: 'dist/index.js'
-
 branding:
   color: 'blue'
   icon: 'message-square'

@@ -1,8 +1,8 @@
 {
-  "name": "wechat-work-action",
+  "name": "feishu-action",
   "version": "0.0.1",
   "private": false,
-  "description": "wechat work message action",
+  "description": "feishu action",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
